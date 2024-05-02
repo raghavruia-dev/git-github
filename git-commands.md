@@ -40,41 +40,41 @@ remote -> working with URL's
 add -> adding a new URL 
 origin -> name of the URL that is being added (by-default all repos present in personal accounts, are named as origin)
 
-# GET URLs attached to the folder
+### GET URLs attached to the folder
 git remote -v
 
 *******************************************************
 # USE GIT LOCALLY TO COMMIT CHANGES
 *******************************************************
 
-# CREATE EMPTY GIT REPOSITORY
+### CREATE EMPTY GIT REPOSITORY
 git init (CREATE empty git rep)
 
-# GET LIST OF UNTRACKED FILES
+### GET LIST OF UNTRACKED FILES
 git status 
 
-# STAGE MODIFIED FILES
-## ALL FILES IN A FOLDER
+### STAGE MODIFIED FILES
+#### ALL FILES IN A FOLDER
 git add . 
-## SPECIFIC FILES FROM A FOLDER
+#### SPECIFIC FILES FROM A FOLDER
 git add names.txt
 
-# COMMIT A CHANGE (OR) PUSH CHANGES
+#### COMMIT A CHANGE (OR) PUSH CHANGES
 git commit -m "<Your message here, -m here means message>"
 
-# OPEN A FILE
+### OPEN A FILE
 vi <filename>
 
-# SAVE THE FILE
+### SAVE THE FILE
 save that file: Press Esc -> Type :x
 
-# DISPLAY CONTENT OF A FILE
+### DISPLAY CONTENT OF A FILE
 display contents of a file: cat <filename>
 
-# UNSTAGE CHANGES 
+### UNSTAGE CHANGES 
 git restore --staged <filename>
 
-# SEE THE HISTORY OF CHANGES
+### SEE THE HISTORY OF CHANGES
 git log
 
 # NOTE
@@ -92,24 +92,26 @@ Say for eg. you want to get back to COMMIT 0, in that case both the COMMIT 1 & C
 
 AS EACH COMMIT IS BUILT ON TOP OF EACH COMMIT SEQUENTIALLY
 
-# REMOVE THE LAST COMMIT
+### REMOVE THE LAST COMMIT
 Copy the commit hash value (of the previous commit of the latest commit you want to undo)
 
 git reset <commit_hash_value>
 
 LAST COMMIT WILL BE UNDO
 
-# DONT WANT TO COMMIT (AND) DONT WANT TO LOSE IT (go backstage, whenever wanted will bring you back)
+# STASH
+
+### DONT WANT TO COMMIT (AND) DONT WANT TO LOSE IT (go backstage, whenever wanted will bring you back)
 First, stage it
 git add .
 
 Secondly, move it to stash
 git stash
 
-# IMPLEMENT STASH CHANGES (I.E BRING BACK FROM THE STASH TO MAIN STAGE)
+### IMPLEMENT STASH CHANGES (I.E BRING BACK FROM THE STASH TO MAIN STAGE)
 git stash pop
 
-# CLEAR THE STASH 
+### CLEAR THE STASH 
 git stash clear
 
 ### PUSH THE CHANGES TO GITHUB
@@ -127,18 +129,18 @@ NEVER COMMIT TO THE MAIN/MASTER BRANCH WHILE YOU ARE WORKING ON A NEW FEATURE/BU
 
 ALWAYS CREATE A SEPERATE BRANCH FOR IT
 
-# CREATE NEW BRANCH 
+### CREATE NEW BRANCH 
 git branch <branch_name>
 
-# CHANGE THE POINTER OF  HEAD
+### CHANGE THE POINTER OF  HEAD
 git checkout <branch_name>
 
 HEAD points to the ACTIVE BRANCH where commits will be made
 
-# MERGE A BRANCH TO MAIN (IF YOU ARE REPO OWNER)
+### MERGE A BRANCH TO MAIN (IF YOU ARE REPO OWNER)
 git merge <branch_to_be_merged>
 
-# CLONING A REPO
+### CLONING A REPO
 
 git clone <url_of_repo>
 
@@ -148,11 +150,11 @@ git remote add upstream <url_of_repo>
 
 FORKED REPO'S IS KNOWN AS upstream as a convention
 
-# PUSHING OF BRANCH
+### PUSHING OF BRANCH
 
 git push <url_name> <branch_to_be_pushed_name>
 
-# ONE PULL REQUEST == ONE BRANCH
+### ONE PULL REQUEST == ONE BRANCH
 
 ALWAYS CREATE A NEW BRANCH FOR A NEW FEATURE OR BUG
 AS IT WILL NOT ALLOW TO OPEN MORE THAN 1 PULL REQUEST FOR A SINGLE BRANCH
@@ -161,28 +163,25 @@ AS IT WILL NOT ALLOW TO OPEN MORE THAN 1 PULL REQUEST FOR A SINGLE BRANCH
 
 The online repository contains a commit that our local repo doesn't, and as commits are interlinked force push is required.
 
-# UPDATING FORK
+### UPDATING FORK
 
 When a PR is merged into the main, the fork you created in your repo will remain unchanged, inorder to update it based on the main branch
 
-## STEP 1: change the head to main
+### STEP 1: change the head to main
 git checkout <branch_name>
 
-## fetch the changes in all branch
+### fetch the changes in all branch
 git fetch --all --prune
 
 --all -> all the branches
 --prune -> even the deleted ones
 
-## STEP 2: reset the main branch of origin to the main branch of upstream
+### STEP 2: reset the main branch of origin to the main branch of upstream
 git reset --hard upstream/main
 
 OR
 
 git pull <upstream_name> <branch_name>
-
-
-# MERGE CONFLICT
 
 # SQUASH COMMITS or MERGE COMMITS
 
@@ -194,7 +193,7 @@ reset to the commit from where you want to marge the commits
 those commits will be unstaged
 and after that stage them and then commit them, all those commits will now be just 1 single commit
 
-## Using rebase command for merging
+### Using rebase command for merging
 git rebase -i 
 
 -i -> interactive environment

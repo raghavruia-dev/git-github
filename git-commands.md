@@ -24,6 +24,14 @@ git config --global credential.helper store
 ### For HTTPS authentication, you may also configure your GitHub username to associate with the repository URLs:
 git config --global credential.https://github.com.username <your_username>
 
+# INITIALISE A LOCAL REPO
+
+git init
+
+git add . 
+
+git commit -m "Initial Commit"
+
 
 *******************************************************
 # CONNECT TO GIT HUB REPO
